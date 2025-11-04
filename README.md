@@ -1,16 +1,16 @@
-## Hi there 👋
 
-<!--
-**awizzz/awizzz** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+## 📊 Stats
 
-Here are some ideas to get you started:
+![GitHub Stats](https://github-readme-stats.vercel.app/api?username=USERNAME&show_icons=true&theme=default)
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=USERNAME&layout=compact&theme=default)
+
+## 🚀 Projets
+
+- **[Projet 1](lien)** - Description courte
+- **[Projet 2](lien)** - Description courte  
+- **[Projet 3](lien)** - Description courte
+
+---
+
+⭐ N'hésitez pas à explorer mes repos !
