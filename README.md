@@ -1,19 +1,27 @@
 <div align="center">
 
-### 🌟
+# ✨
 
-**`passionné de code et de technologies`**
+**`développeur · créateur · passionné`**
 
-<br>
+---
 
-[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=USERNAME&layout=compact&theme=radical)](https://github.com/awizzz)
+### 🛠️ **tech stack**
 
-<br>
+`javascript` `python` `java` `react` `node.js` `git`
 
-![GitHub Stats](https://github-readme-stats.vercel.app/api?username=USERNAME&show_icons=true&theme=radical&hide_title=true)
+---
 
-<br>
+### 📂 **projets**
 
-**`explore · create · innovate`**
+| nom | description | tech |
+|-----|-------------|------|
+| **projet 1** | description courte | react, node |
+| **projet 2** | description courte | python, django |
+| **projet 3** | description courte | java, spring |
+
+---
+
+**`💫`**
 
 </div>
