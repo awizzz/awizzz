@@ -1,16 +1,19 @@
+<div align="center">
 
-## 📊 Stats
+### 🌟
 
-![GitHub Stats](https://github-readme-stats.vercel.app/api?username=USERNAME&show_icons=true&theme=default)
+**`passionné de code et de technologies`**
 
-![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=USERNAME&layout=compact&theme=default)
+<br>
 
-## 🚀 Projets
+[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=USERNAME&layout=compact&theme=radical)](https://github.com/awizzz)
 
-- **[Projet 1](lien)** - Description courte
-- **[Projet 2](lien)** - Description courte  
-- **[Projet 3](lien)** - Description courte
+<br>
 
----
+![GitHub Stats](https://github-readme-stats.vercel.app/api?username=USERNAME&show_icons=true&theme=radical&hide_title=true)
 
-⭐ N'hésitez pas à explorer mes repos !
+<br>
+
+**`explore · create · innovate`**
+
+</div>
