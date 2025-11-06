@@ -6,7 +6,7 @@
 
 <p align="center">
   <a href="https://github.com/awizzz"><img alt="Website" src="https://img.shields.io/badge/GitHub-%40awizzz-181717?style=for-the-badge&logo=github" /></a>
-  <a href="mailto:awizz@example.com"><img alt="Email" src="https://img.shields.io/badge/Contact-email-blue?style=for-the-badge&logo=gmail" /></a>
+  <a href="mailto:awizz.pro@proton.me"><img alt="Email" src="https://img.shields.io/badge/Contact-email-blue?style=for-the-badge&logo=gmail" /></a>
   <img src="https://img.shields.io/badge/Status-Open%20to%20collab-brightgreen?style=for-the-badge" />
 </p>
 
