@@ -1,18 +1,10 @@
 ![Header](https://github.com/username/username/raw/main/header.gif)
 
-[![Twitter](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/username) 
-[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/username)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/username)
+[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/awizzz)
 
 # 👋 &nbsp;Hey there
 
 I'm a developer passionate about creating things that matter. I enjoy working on projects that solve real problems and learning new technologies along the way.
-
-&nbsp;
-
-## 🚀 &nbsp;Current focus
-
-Working on **[Project Name]** - a brief description of what you're building and why it's cool.
 
 &nbsp;
 
@@ -29,17 +21,10 @@ Working on **[Project Name]** - a brief description of what you're building and 
 
 ## 📈 &nbsp;Recent projects
 
-[![Project 1](https://github-readme-stats.vercel.app/api/pin/?username=username&repo=repo1&theme=radical)](https://github.com/username/repo1)
-[![Project 2](https://github-readme-stats.vercel.app/api/pin/?username=username&repo=repo2&theme=radical)](https://github.com/username/repo2)
+[![Project 1](https://github-readme-stats.vercel.app/api/pin/?username=username&repo=repo1&theme=radical)](https://github.com/awizzz/Nighty-Nuker)
 
 &nbsp;
 
-## 📊 &nbsp;Stats
-
-![GitHub Stats](https://github-readme-stats.vercel.app/api?username=username&show_icons=true&theme=radical)
-
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=username&layout=compact&theme=radical)
-
 ---
 
-⭐ *From [username](https://github.com/username)*
+⭐ *From [awizzz](https://github.com/awizzz)*
