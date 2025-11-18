@@ -9,7 +9,7 @@
 ### 🚀 Repositories Populaires
 
 <a href="https://github.com/awizzz?tab=repositories">
-  <img src="https://github-readme-stats.vercel.app/api/pin/?username=awizzz&repo=Practice&theme=tokyonight" />
+  <img src="https://github-readme-stats.vercel.app/api/pin/?username=awizzz&repo=UHC-Host-Bot&theme=tokyonight" />
 </a>
 <a href="https://github.com/awizzz?tab=repositories">
   <img src="https://github-readme-stats.vercel.app/api/pin/?username=awizzz&repo=Lobby-Selector&theme=tokyonight" />
