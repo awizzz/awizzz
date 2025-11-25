@@ -25,7 +25,7 @@
 
 ### 📊 Stats GitHub
 
-<img src="https://github-readme-stats.vercel.app/api?username=awizzz&show_icons=true&theme=tokyonight&locale=fr" />
+![Stats GitHub](https://github-readme-stats.vercel.app/api?username=awizzz&show_icons=true&theme=tokyonight&locale=fr&cache_seconds=1800)
 
 ---
 
