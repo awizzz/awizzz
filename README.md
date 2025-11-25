@@ -39,6 +39,3 @@
 </p>
 
 Principaux : JavaScript / TypeScript, Node.js, React / Next.js, Tailwind, Python, MongoDB, MySQL.
-
-
-```md
