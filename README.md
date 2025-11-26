@@ -3,23 +3,9 @@
   <img src="https://readme-typing-svg.herokuapp.com?size=30&color=36BCF7&center=true&vCenter=true&width=600&lines=Welcome+to+my+GitHub!;Full-stack+Developer+in+Progress;Always+learning+new+stuff" alt="Welcome banner" />
 </p>
 
-### 📈 GitHub — Stats
-
-<p align="center">
-  <a href="https://github.com/Awizzz" target="_blank" rel="noopener noreferrer">
-    <img alt="GitHub" src="https://img.shields.io/badge/GitHub-Awizzz-181717?logo=github&logoColor=white" />
-  </a>
-  <a href="https://github.com/Awizzz?tab=followers" target="_blank" rel="noopener noreferrer">
-    <img alt="Followers" src="https://img.shields.io/github/followers/Awizzz?label=Followers&style=social" />
-  </a>
-  <a href="https://github.com/Awizzz?tab=repositories" target="_blank" rel="noopener noreferrer">
-    <img alt="Repositories" src="https://img.shields.io/badge/Repositories-See%20profile-lightgrey" />
-  </a>
-</p>
-
 ---
 
-### ⭐ Projets populaires
+### ⭐ Cool Repos
 
 
 - [**UHC-Host-Bot**](https://github.com/Awizzz/UHC-Host-Bot)  
@@ -40,25 +26,32 @@
 
 <p align="center">
   
-  <!-- Java -->
-  <img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white" alt="Java" />
+  <a href="#">
+    <img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white&labelColor=000000" alt="Java" />
+  </a>
   
-  <!-- JavaScript -->
-  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript" />
+  <a href="#">
+    <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black&labelColor=000000" alt="JavaScript" />
+  </a>
   
-  <!-- Node.js -->
-  <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node.js" />
+  <a href="#">
+    <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white&labelColor=000000" alt="Node.js" />
+  </a>
   
-  <!-- Python -->
-  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python" />
+  <a href="#">
+    <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white&labelColor=000000" alt="Python" />
+  </a>
   
-  <!-- C# -->
-  <img src="https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=c-sharp&logoColor=white" alt="C#" />
+  <a href="#">
+    <img src="https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=c-sharp&logoColor=white&labelColor=000000" alt="C#" />
+  </a>
   
-  <!-- C++ -->
-  <img src="https://img.shields.io/badge/C%2B%2B-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white" alt="C++" />
+  <a href="#">
+    <img src="https://img.shields.io/badge/C%2B%2B-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white&labelColor=000000" alt="C++" />
+  </a>
   
-  <!-- C -->
-  <img src="https://img.shields.io/badge/C-A8B9CC?style=for-the-badge&logo=c&logoColor=black" alt="C" />
+  <a href="#">
+    <img src="https://img.shields.io/badge/C-A8B9CC?style=for-the-badge&logo=c&logoColor=black&labelColor=000000" alt="C" />
+  </a>
 
 </p>
