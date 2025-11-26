@@ -35,7 +35,5 @@
 ### ⛓️ Tech Stack
 
 <p align="center">
-  <img src="https://skillicons.dev/icons?i=js,ts,nodejs,py,java,html,css,react,nextjs,tailwind,mongodb,mysql,git,github&perline=7" alt="Tech icons" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=awizzz&layout=compact&locale=fr&theme=radical" alt="Langages" />
 </p>
-
-Principaux : JavaScript / TypeScript, Node.js, React / Next.js, Tailwind, Python, MongoDB, MySQL.
