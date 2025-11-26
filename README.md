@@ -3,7 +3,7 @@
   <img src="https://readme-typing-svg.herokuapp.com?size=30&color=36BCF7&center=true&vCenter=true&width=600&lines=Welcome+to+my+GitHub!;Full-stack+Developer+in+Progress;Always+learning+new+stuff" alt="Welcome banner" />
 </p>
 
-### 📈 GitHub — Statistiques rapides
+### 📈 GitHub — Stats
 
 <p align="center">
   <a href="https://github.com/Awizzz" target="_blank" rel="noopener noreferrer">
@@ -29,6 +29,10 @@
 - [**lobby-selector**](https://github.com/Awizzz/lobby-selector)  
   Plugin Minecraft (Spigot/Paper) — sélection de serveurs via une boussole configurable.  
   [![Stars](https://img.shields.io/github/stars/Awizzz/lobby-selector?style=social&label=Stars)](https://github.com/Awizzz/lobby-selector/stargazers) [![Forks](https://img.shields.io/github/forks/Awizzz/lobby-selector?style=social&label=Forks)](https://github.com/Awizzz/lobby-selector/network)
+
+- [**gaming-optimizer**](https://github.com/Awizzz/gaming-optimizer)  
+  Outil en ligne de commande pour Windows 10/11 qui mesure et optimise automatiquement la latence réseau, la stabilité système et les performances GPU pour les jeux compétitifs.  
+  [![Stars](https://img.shields.io/github/stars/Awizzz/gaming-optimizer?style=social&label=Stars)](https://github.com/Awizzz/gaming-optimizer/stargazers) [![Forks](https://img.shields.io/github/forks/Awizzz/gaming-optimizer?style=social&label=Forks)](https://github.com/Awizzz/gaming-optimizer/network)
 
 ---
 
