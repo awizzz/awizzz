@@ -16,9 +16,9 @@
   Plugin Minecraft (Spigot/Paper) — sélection de serveurs via une boussole configurable.  
   [![Stars](https://img.shields.io/github/stars/Awizzz/lobby-selector?style=social&label=Stars)](https://github.com/Awizzz/lobby-selector/stargazers) [![Forks](https://img.shields.io/github/forks/Awizzz/lobby-selector?style=social&label=Forks)](https://github.com/Awizzz/lobby-selector/network)
 
-- [**gaming-optimizer**](https://github.com/Awizzz/gaming-optimizer)  
-  Outil en ligne de commande pour Windows 10/11 qui mesure et optimise automatiquement la latence réseau, la stabilité système et les performances GPU pour les jeux compétitifs.  
-  [![Stars](https://img.shields.io/github/stars/Awizzz/gaming-optimizer?style=social&label=Stars)](https://github.com/Awizzz/gaming-optimizer/stargazers) [![Forks](https://img.shields.io/github/forks/Awizzz/gaming-optimizer?style=social&label=Forks)](https://github.com/Awizzz/gaming-optimizer/network)
+- [**BedrockTabList**](https://github.com/Awizzz/BedrockTabList)  
+  Plugin Minecraft Spigot/Paper qui affiche le type de plateforme (Bedrock ou Java) dans la liste des joueurs (tab list). 
+  [![Stars](https://img.shields.io/github/stars/Awizzz/BedrockTabList?style=social&label=Stars)](https://github.com/Awizzz/BedrockTabList/stargazers) [![Forks](https://img.shields.io/github/forks/Awizzz/BedrockTabList?style=social&label=Forks)](https://github.com/Awizzz/BedrockTabList/network)
 
 ---
 
