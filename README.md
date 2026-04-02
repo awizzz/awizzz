@@ -1,57 +1,76 @@
-<!-- Banner -->
-<p align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?size=30&color=36BCF7&center=true&vCenter=true&width=600&lines=Welcome+to+my+GitHub!;Full-stack+Developer+in+Progress;Always+learning+new+stuff" alt="Welcome banner" />
-</p>
+<div align="center">
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=28&duration=3000&pause=1000&color=00D9FF&center=true&width=600&lines=hey+there%2C+I'm+awizzz+👋;fullstack+developer+%26+creator;turning+ideas+into+reality" alt="Typing SVG" />
+</div>
+
+<br/>
+
+<div align="center">
+  <a href="https://github.com/awizzz">
+    <img src="https://img.shields.io/github/followers/awizzz?style=social" alt="GitHub followers" />
+  </a>
+  <a href="https://github.com/awizzz?tab=repositories">
+    <img src="https://img.shields.io/github/repos/awizzz?style=social" alt="Total repos" />
+  </a>
+</div>
 
 ---
 
-### ⭐ Cool Repos
+### ⚔️ **UHC Host Bot**
+> *Discord bot for hosting Ultra Hardcore games*
 
+Streamline UHC gameplay with automated hosting, match management, and player coordination. Built for the Minecraft community.
 
-- [**UHC-Host-Bot**](https://github.com/Awizzz/UHC-Host-Bot)  
-  Bot pour gérer des parties UHC / host tools.  
-  [![Stars](https://img.shields.io/github/stars/Awizzz/UHC-Host-Bot?style=social&label=Stars)](https://github.com/Awizzz/UHC-Host-Bot/stargazers) [![Forks](https://img.shields.io/github/forks/Awizzz/UHC-Host-Bot?style=social&label=Forks)](https://github.com/Awizzz/UHC-Host-Bot/network)
-
-- [**lobby-selector**](https://github.com/Awizzz/lobby-selector)  
-  Plugin Minecraft (Spigot/Paper) — sélection de serveurs via une boussole configurable.  
-  [![Stars](https://img.shields.io/github/stars/Awizzz/lobby-selector?style=social&label=Stars)](https://github.com/Awizzz/lobby-selector/stargazers) [![Forks](https://img.shields.io/github/forks/Awizzz/lobby-selector?style=social&label=Forks)](https://github.com/Awizzz/lobby-selector/network)
-
-- [**BedrockTabList**](https://github.com/Awizzz/BedrockTabList)  
-  Plugin Minecraft Spigot/Paper qui affiche le type de plateforme (Bedrock ou Java) dans la liste des joueurs (tab list). 
-  [![Stars](https://img.shields.io/github/stars/Awizzz/BedrockTabList?style=social&label=Stars)](https://github.com/Awizzz/BedrockTabList/stargazers) [![Forks](https://img.shields.io/github/forks/Awizzz/BedrockTabList?style=social&label=Forks)](https://github.com/Awizzz/BedrockTabList/network)
+🔗 [`github.com/awizzz/UHC-Host-Bot`](https://github.com/awizzz/UHC-Host-Bot)
 
 ---
 
-### ⛓️ Tech Stack
+### 🧱 **UHC Core**
+> *The backbone of ultra hardcore experiences*
 
-<p align="center">
-  
-  <a href="#">
-    <img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white&labelColor=000000" alt="Java" />
-  </a>
-  
-  <a href="#">
-    <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black&labelColor=000000" alt="JavaScript" />
-  </a>
-  
-  <a href="#">
-    <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white&labelColor=000000" alt="Node.js" />
-  </a>
-  
-  <a href="#">
-    <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white&labelColor=000000" alt="Python" />
-  </a>
-  
-  <a href="#">
-    <img src="https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=c-sharp&logoColor=white&labelColor=000000" alt="C#" />
-  </a>
-  
-  <a href="#">
-    <img src="https://img.shields.io/badge/C%2B%2B-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white&labelColor=000000" alt="C++" />
-  </a>
-  
-  <a href="#">
-    <img src="https://img.shields.io/badge/C-A8B9CC?style=for-the-badge&logo=c&logoColor=black&labelColor=000000" alt="C" />
-  </a>
+A comprehensive UHC plugin system providing core mechanics and extensibility for Minecraft servers running UHC game modes.
 
-</p>
+🔗 [`github.com/awizzz/UHC-Core`](https://github.com/awizzz/UHC-Core)
+
+---
+
+## 🛠️ Tech Stack
+
+<div align="center">
+
+![Python](https://img.shields.io/badge/Python-3670A0?style=flat-square&logo=python&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
+![Java](https://img.shields.io/badge/Java-ED8B00?style=flat-square&logo=java&logoColor=white)
+![Discord.js](https://img.shields.io/badge/Discord.js-5865F2?style=flat-square&logo=discord&logoColor=white)
+![Git](https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white)
+
+</div>
+
+---
+
+## 📊 GitHub Analytics
+
+<div align="center">
+
+![awizzz's GitHub stats](https://github-readme-stats.vercel.app/api?username=awizzz&show_icons=true&theme=tokyonight&hide_border=true&border_radius=10)
+
+![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=awizzz&layout=compact&theme=tokyonight&hide_border=true&border_radius=10)
+
+</div>
+
+---
+
+## 🤝 Let's Connect
+
+I'm always open to collaborating on interesting projects or just chatting about code, gaming, and tech!
+
+<div align="center">
+
+[![GitHub](https://img.shields.io/badge/GitHub-awizzz-black?style=flat-square&logo=github)](https://github.com/awizzz)
+
+</div>
+
+---
+
+<div align="center">
+  <sub>⭐ If you find something useful, consider giving it a star! It means the world to me.</sub>
+</div>
