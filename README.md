@@ -1,6 +1,6 @@
 # Awizz
 
-**Founder & Lead Dev @ [Naeris](https://naerisbot.fr)** — France
+**Founder & Lead Dev @ [Naeris](https://naerisbot.fr)** - France
 
 I build tools for gaming communities: Minecraft plugins, Discord bots, and the infrastructure that ties them together.
 
