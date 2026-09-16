@@ -1,43 +1,35 @@
-# Awizz
+# Hi 👋, I'm Awizz
 
-**Founder & Lead Dev @ [Naeris](https://naerisbot.fr)** - France
+### A passionate developer
 
-I build tools for gaming communities: Minecraft plugins, Discord bots, and the infrastructure that ties them together.
+<p align="left"> <img src="https://komarev.com/ghpvc/?username=awizzz&label=Profile views&color=0e75b6&style=flat" alt="awizzz" /> </p>
 
----
+<p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=awizzz" alt="awizzz" /></a> </p>
 
-## Projects
+- 🔭 I'm currently working on **A Windows shell written in Rust**
 
-| Repository | Description | Stack |
-|------------|-------------|-------|
-| [UHC-Host-Bot](https://github.com/awizzz/UHC-Host-Bot) | Discord bot for hosting Ultra Hardcore games | JavaScript, Discord.js |
-| [lobby-selector](https://github.com/awizzz/lobby-selector) | Compass-based BungeeCord server selector plugin | Java, Spigot/Paper |
-| [BedrockTabList](https://github.com/awizzz/BedrockTabList) | Displays platform type (Bedrock/Java) in the tab list | Java, Floodgate API |
-| [UHC-Core](https://github.com/awizzz/UHC-Core) | Core mechanics plugin for UHC game modes | Java |
+- 🌱 I'm currently learning **Rust**
 
----
+- 👯 I'm looking to collaborate on **Open Source Projects**
 
-## Tech Stack
+- 💬 Ask me about **TypeScript or Java and JavaScript**
 
-![Java](https://img.shields.io/badge/Java-ED8B00?style=flat-square&logo=openjdk&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
-![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
-![Discord.js](https://img.shields.io/badge/Discord.js-5865F2?style=flat-square&logo=discord&logoColor=white)
-![Spigot](https://img.shields.io/badge/Spigot%2FPaper-F7A63E?style=flat-square&logo=minecraft&logoColor=white)
-![Git](https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white)
+- 📫 How to reach me **awizz.pro@proton.me**
 
----
+- 👨‍💻 All of my projects are available at **[https://naerisbot.fr](https://naerisbot.fr)**
 
-## GitHub Stats
-
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=awizzz&show_icons=true&theme=tokyonight&hide_border=true&border_radius=8" height="150"/>
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=awizzz&layout=compact&theme=tokyonight&hide_border=true&border_radius=8" height="150"/>
+<h3 align="left">Connect with me:</h3>
+<p align="left">
+<a href="https://github.com/awizzz" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/github.svg" alt="awizzz" height="30" width="40" /></a>
+<a href="https://discord.gg/awizzzoff" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/discord.svg" alt="awizzzoff" height="30" width="40" /></a>
 </p>
 
----
+<h3 align="left">Languages and Tools:</h3>
+<p align="left"> <a href="https://developer.mozilla.org/en-US/docs/Web/arduino" target="_blank" rel="noreferrer"> <img src="https://skillicons.dev/icons?i=arduino" alt="arduino" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/bash" target="_blank" rel="noreferrer"> <img src="https://skillicons.dev/icons?i=bash" alt="bash" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/css3" target="_blank" rel="noreferrer"> <img src="https://skillicons.dev/icons?i=css" alt="css3" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/django" target="_blank" rel="noreferrer"> <img src="https://skillicons.dev/icons?i=django" alt="django" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/docker" target="_blank" rel="noreferrer"> <img src="https://skillicons.dev/icons?i=docker" alt="docker" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/dotnet" target="_blank" rel="noreferrer"> <img src="https://skillicons.dev/icons?i=dotnet" alt="dotnet" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/electron" target="_blank" rel="noreferrer"> <img src="https://skillicons.dev/icons?i=electron" alt="electron" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/express" target="_blank" rel="noreferrer"> <img src="https://skillicons.dev/icons?i=express" alt="express" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/git" target="_blank" rel="noreferrer"> <img src="https://skillicons.dev/icons?i=git" alt="git" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/graphql" target="_blank" rel="noreferrer"> <img src="https://skillicons.dev/icons?i=graphql" alt="graphql" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/java" target="_blank" rel="noreferrer"> <img src="https://skillicons.dev/icons?i=java" alt="java" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/javascript" target="_blank" rel="noreferrer"> <img src="https://skillicons.dev/icons?i=js" alt="javascript" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/laravel" target="_blank" rel="noreferrer"> <img src="https://skillicons.dev/icons?i=laravel" alt="laravel" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/linux" target="_blank" rel="noreferrer"> <img src="https://skillicons.dev/icons?i=linux" alt="linux" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/mariadb" target="_blank" rel="noreferrer"> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original-wordmark.svg" alt="mariadb" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/mongodb" target="_blank" rel="noreferrer"> <img src="https://skillicons.dev/icons?i=mongodb" alt="mongodb" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/mysql" target="_blank" rel="noreferrer"> <img src="https://skillicons.dev/icons?i=mysql" alt="mysql" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/nextjs" target="_blank" rel="noreferrer"> <img src="https://skillicons.dev/icons?i=nextjs" alt="nextjs" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/nginx" target="_blank" rel="noreferrer"> <img src="https://skillicons.dev/icons?i=nginx" alt="nginx" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/nodejs" target="_blank" rel="noreferrer"> <img src="https://skillicons.dev/icons?i=nodejs" alt="nodejs" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/oracle" target="_blank" rel="noreferrer"> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/oracle/oracle-original.svg" alt="oracle" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/php" target="_blank" rel="noreferrer"> <img src="https://skillicons.dev/icons?i=php" alt="php" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/postgresql" target="_blank" rel="noreferrer"> <img src="https://skillicons.dev/icons?i=postgres" alt="postgresql" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/pytorch" target="_blank" rel="noreferrer"> <img src="https://skillicons.dev/icons?i=pytorch" alt="pytorch" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/react" target="_blank" rel="noreferrer"> <img src="https://skillicons.dev/icons?i=react" alt="react" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/reactnative" target="_blank" rel="noreferrer"> <img src="https://skillicons.dev/icons?i=react" alt="reactnative" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/rust" target="_blank" rel="noreferrer"> <img src="https://skillicons.dev/icons?i=rust" alt="rust" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/sass" target="_blank" rel="noreferrer"> <img src="https://skillicons.dev/icons?i=sass" alt="sass" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/spring" target="_blank" rel="noreferrer"> <img src="https://skillicons.dev/icons?i=spring" alt="spring" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/sqlite" target="_blank" rel="noreferrer"> <img src="https://skillicons.dev/icons?i=sqlite" alt="sqlite" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/tailwind" target="_blank" rel="noreferrer"> <img src="https://skillicons.dev/icons?i=tailwind" alt="tailwind" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/typescript" target="_blank" rel="noreferrer"> <img src="https://skillicons.dev/icons?i=ts" alt="typescript" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/unity" target="_blank" rel="noreferrer"> <img src="https://skillicons.dev/icons?i=unity" alt="unity" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/unreal" target="_blank" rel="noreferrer"> <img src="https://skillicons.dev/icons?i=unreal" alt="unreal" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/vuejs" target="_blank" rel="noreferrer"> <img src="https://skillicons.dev/icons?i=vue" alt="vuejs" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/vuepress" target="_blank" rel="noreferrer"> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg" alt="vuepress" width="40" height="40"/> </a></p>
 
-## Contact
+<p><img align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=awizzz&show_icons=true&locale=en&layout=compact" alt="awizzz" /></p>
 
-[![GitHub](https://img.shields.io/badge/GitHub-awizzz-181717?style=flat-square&logo=github)](https://github.com/awizzz)
-[![Website](https://img.shields.io/badge/Website-naerisbot.fr-0D9FFF?style=flat-square&logo=googlechrome&logoColor=white)](https://naerisbot.fr)
+<p>&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=awizzz&show_icons=true&locale=en" alt="awizzz" /></p>
+
+<p><img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=awizzz&" alt="awizzz" /></p>
+
