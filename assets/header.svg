@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="220" viewBox="0 0 1000 220">
+<rect width="100%" height="100%" rx="18" fill="#0d1117"/>
+<style>text{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,monospace}.title{fill:#f0f6fc;font-weight:700}.muted{fill:#8b949e}.blue{fill:#58a6ff}</style>
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#58a6ff"/><stop offset="1" stop-color="#a371f7"/></linearGradient></defs>
+<rect x="1" y="1" width="998" height="218" rx="18" fill="none" stroke="#30363d"/>
+<circle cx="44" cy="38" r="7" fill="#ff5f56"/><circle cx="68" cy="38" r="7" fill="#ffbd2e"/><circle cx="92" cy="38" r="7" fill="#27c93f"/>
+<text x="128" y="44" class="muted" font-size="15">awizz@github: ~</text>
+<text x="42" y="104" class="title" font-size="46">AWIZZ</text>
+<rect x="42" y="121" width="360" height="3" rx="2" fill="url(#g)"/>
+<text x="42" y="154" class="muted" font-size="17">systems • software • experiments</text>
+<text x="42" y="190" class="blue" font-size="15">$ currently hacking on LiquidGlassCord</text>
+<text x="958" y="190" class="muted" text-anchor="end" font-size="13">530 contributions · synced 2026-09-17</text>
+</svg>
