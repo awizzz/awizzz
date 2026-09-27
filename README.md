@@ -1,66 +1,29 @@
-<div align="center">
+I'm **awizz**. Most of what's on this profile exists because I wanted something, went looking for it, and either couldn't find it or didn't like what I found. So I built it, broke it, and built it again once I understood the problem a bit better.
 
-<img width="100%" src="./assets/header.svg" alt="Awizz" />
+That's how I ended up with a handful of Minecraft plugins, a Discord theme, a few bots, and now a shell.
 
-</div>
+### Right now
 
-## `~/about`
+**Nebula Shell**, a shell for Windows written in Rust. It's my current rabbit hole and the project I learn the most from.
 
-I build tools, bots and systems projects — usually because I wanted something that didn't exist yet.
+### Things I've made
 
-```text
-$ whoami
-awizz — building, breaking, learning, rebuilding
-```
+Minecraft plugins, for Spigot and Paper servers:
 
-Current rabbit hole: **Nebula Shell**, a Windows shell written in Rust.
+- [**lobby-selector**](https://github.com/awizzz/lobby-selector): an interactive menu that lets players pick which server they join on a network.
+- [**SkinManager**](https://github.com/awizzz/SkinManager): pulls skins from the Mojang API and applies them automatically.
+- [**BedrockTabList**](https://github.com/awizzz/BedrockTabList): shows in the tab list whether each player is on Bedrock or Java. Useful on crossplay servers.
 
-## `~/stack`
+And outside of Minecraft:
 
-<div align="center">
-  <img width="100%" src="./assets/stack.svg" alt="Tech stack" />
-</div>
+- [**LiquidGlassCord**](https://github.com/awizzz/LiquidGlassCord): a Discord theme that goes for the liquid glass look. Pure CSS.
 
-## `~/featured`
+Everything else is in [my repositories](https://github.com/awizzz?tab=repositories), half-finished experiments included.
 
-<p align="center">
-  <a href="https://github.com/awizzz/LiquidGlassCord"><img width="48%" src="./assets/project-LiquidGlassCord.svg" alt="LiquidGlassCord" /></a>
-  <a href="https://github.com/awizzz/BedrockTabList"><img width="48%" src="./assets/project-BedrockTabList.svg" alt="BedrockTabList" /></a>
-</p>
+### What I work with
 
-<p align="center">
-  <a href="https://github.com/awizzz/SkinManager"><img width="48%" src="./assets/project-SkinManager.svg" alt="SkinManager" /></a>
-  <a href="https://github.com/awizzz/lobby-selector"><img width="48%" src="./assets/project-lobby-selector.svg" alt="lobby-selector" /></a>
-</p>
+TypeScript and Java most of the time, Rust for Nebula. Python, Bash and PowerShell for the small scripts that glue everything together. Node and React when a project needs a web side, PostgreSQL, MySQL or MongoDB depending on the data, Docker to run it all on Linux. And an Arduino when I feel like touching actual hardware.
 
-## `~/signal`
+### Talk to me
 
-<div align="center">
-  <img width="100%" src="./assets/stats.svg" alt="GitHub stats" />
-  <br /><br />
-  <img width="100%" src="./assets/languages.svg" alt="Language mix" />
-  <br /><br />
-  <img width="100%" src="./assets/contributions.svg" alt="Contribution activity" />
-</div>
-
-## `~/contributions`
-
-<div align="center">
-  <img width="100%" src="./assets/snake.svg" alt="Contribution snake" />
-</div>
-
-## `~/contact`
-
-<div align="center">
-  <a href="mailto:awizz.pro@proton.me"><b>EMAIL</b></a>
-  &nbsp;&nbsp;•&nbsp;&nbsp;
-  <a href="https://discord.gg/awizzzoff"><b>DISCORD</b></a>
-  &nbsp;&nbsp;•&nbsp;&nbsp;
-  <a href="https://github.com/awizzz?tab=repositories"><b>ALL REPOSITORIES</b></a>
-</div>
-
-<br />
-
-<div align="center">
-  <sub>Most projects start because I wanted the thing and couldn't find it.</sub>
-</div>
+Found a bug in one of my plugins, have an idea, or just want to chat: [email](mailto:awizz.pro@proton.me) works, and so does [my Discord server](https://discord.gg/awizzzoff). Issues and PRs are welcome on any repo.
