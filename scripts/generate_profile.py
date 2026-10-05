@@ -1,28 +1,148 @@
 #!/usr/bin/env python3
+import base64
+import io
 import json
+import logging
 import os
-import textwrap
 import urllib.request
-from collections import Counter
-from datetime import datetime, timedelta, timezone
+from datetime import date, datetime, timedelta, timezone
 from html import escape
+from math import sqrt
 from pathlib import Path
+
+from fontTools import subset
+from fontTools.ttLib import TTFont
 
 USER = os.getenv("GITHUB_REPOSITORY_OWNER", "awizzz")
 TOKEN = os.getenv("GH_TOKEN") or os.getenv("GITHUB_TOKEN", "")
-OUT = Path("assets")
-OUT.mkdir(exist_ok=True)
-FEATURED = ["LiquidGlassCord", "BedrockTabList", "SkinManager", "lobby-selector"]
-STACK = ["Rust", "TypeScript", "JavaScript", "Python", "Java", "Node.js", "React", "Docker", "Linux", "Bash", "PowerShell", "Git", "PostgreSQL", "MySQL", "MongoDB", "Arduino"]
+HERE = Path(__file__).resolve().parent
+OUT = HERE.parent / "assets"
+FONTS = {
+    "aw-serif": HERE / "fonts/InstrumentSerif-Regular.ttf",
+    "aw-italic": HERE / "fonts/InstrumentSerif-Italic.ttf",
+    "aw-mono": HERE / "fonts/IBMPlexMono-Regular.ttf",
+    "aw-mono-bold": HERE / "fonts/IBMPlexMono-Medium.ttf",
+    "aw-sans": HERE / "fonts/InstrumentSans-Regular.ttf",
+}
+FALLBACK = {
+    "aw-serif": "Georgia,serif", "aw-italic": "Georgia,serif", "aw-sans": "Helvetica,Arial,sans-serif",
+    "aw-mono": "ui-monospace,monospace", "aw-mono-bold": "ui-monospace,monospace",
+}
+logging.getLogger("fontTools").setLevel(logging.ERROR)
 
-BG = "#0d1117"
-CARD = "#111821"
-BORDER = "#30363d"
-TEXT = "#f0f6fc"
-MUTED = "#8b949e"
-BLUE = "#58a6ff"
-GREEN = "#3fb950"
-FONT = "ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,monospace"
+THEMES = {
+    "light": {
+        "bg": "#f6f3ec", "line": "#e3ddd0", "panel": "#ece6da", "face": "#fbf9f4",
+        "ink": "#1d1c1a", "body": "#57524a", "muted": "#7d776e", "accent": "#df5329",
+        "block": "#dcd4c4", "block_alt": "#d3cab8", "stars": None,
+        "glass": "#9db3bd", "white": "#fdfcf8", "hair": "#3a2a21", "eye": "#1d1c1a", "skin": "#e7b48d", "shade": "#c08a63",
+    },
+    "dark": {
+        "bg": "#0f1318", "line": "#232b35", "panel": "#161c24", "face": "#222a34",
+        "ink": "#ece7dc", "body": "#b3b0a8", "muted": "#8a9099", "accent": "#ff7247",
+        "block": "#1d242d", "block_alt": "#232b35", "stars": "#ece7dc",
+        "glass": "#bcd3dc", "white": "#ece7dc", "hair": "#4b3427", "eye": "#0f1318", "skin": "#d6a27a", "shade": "#a8724f",
+    },
+}
+
+# Featured repos. Blurbs live here rather than coming from the GitHub description
+# so they read the same way as the rest of the README.
+PROJECTS = [
+    {"repo": "lobby-selector", "kind": "minecraft plugin", "art": "compass",
+     "blurb": "A server picker for Spigot and Paper networks. Open the menu, pick where you want to go."},
+    {"repo": "SkinManager", "kind": "minecraft plugin", "art": "face",
+     "blurb": "Grabs skins from the Mojang API and puts them on players automatically."},
+    {"repo": "BedrockTabList", "kind": "minecraft plugin", "art": "tablist",
+     "blurb": "Shows in the tab list who's playing on Bedrock and who's on Java."},
+    {"repo": "LiquidGlassCord", "kind": "discord theme", "art": "glass",
+     "blurb": "A Discord theme that goes for the liquid glass look. Nothing but CSS."},
+]
+
+# 16x16 pixel art (8x8 for the face). Each letter maps to a theme colour, see PIXEL_COLORS.
+ART = {
+    "compass": """
+        .....kkkkkk.....
+        ...kkwwwwwwkk...
+        ..kwwwwwwwwwwk..
+        .kwwwwwwwwwwawk.
+        .kwwwwwwwwwaawk.
+        kwwwwwwwwwaawwwk
+        kwwwwwwwwaawwwwk
+        kwwwwwwkkawwwwwk
+        kwwwwwmkkwwwwwwk
+        kwwwwmmwwwwwwwwk
+        kwwwmmwwwwwwwwwk
+        .kwmmwwwwwwwwwk.
+        .kwmwwwwwwwwwwk.
+        ..kwwwwwwwwwwk..
+        ...kkwwwwwwkk...
+        .....kkkkkk.....""",
+    "face": """
+        HHHHHHHH
+        HHHHHHHH
+        HssssssH
+        ssssssss
+        sWEssEWs
+        sssqqsss
+        ssqqqqss
+        ssssssss""",
+    "tablist": """
+        ................
+        .kkkkkkkkkkkkkk.
+        .kwwwwwwwwwwwwk.
+        .kwaawmmmmmmwwk.
+        .kwaawmmmmmmwwk.
+        .kwwwwwwwwwwwwk.
+        .kwkkwmmmmwwwwk.
+        .kwkkwmmmmwwwwk.
+        .kwwwwwwwwwwwwk.
+        .kwaawmmmmmmmwk.
+        .kwaawmmmmmmmwk.
+        .kwwwwwwwwwwwwk.
+        .kwkkwmmmmmwwwk.
+        .kwkkwmmmmmwwwk.
+        .kwwwwwwwwwwwwk.
+        .kkkkkkkkkkkkkk.""",
+    # A Minecraft-style glass pane drawn over a couple of shapes.
+    "glass": ["""
+        ................
+        ................
+        ................
+        ................
+        .....aaaa.......
+        ....aaaaaa......
+        ....aaaaaa......
+        ....aaaaaa......
+        ....aaaammmm....
+        .....aaammmm....
+        ........mmmm....
+        ........mmmm....
+        ................
+        ................
+        ................
+        ................""", """
+        ................
+        ................
+        ..rrrrrrrrrrrr..
+        ..rghggggggggr..
+        ..rhgggggggggr..
+        ..rggggggggggr..
+        ..rggggggggggr..
+        ..rggggggggggr..
+        ..rggggggggggr..
+        ..rggggggggggr..
+        ..rggggggggggr..
+        ..rggggggggghr..
+        ..rgggggggghgr..
+        ..rrrrrrrrrrrr..
+        ................
+        ................"""],
+}
+PIXEL_COLORS = {
+    "k": ("ink", 1), "w": ("face", 1), "m": ("muted", 1), "a": ("accent", 1),
+    "H": ("hair", 1), "W": ("white", 1), "E": ("eye", 1), "s": ("skin", 1), "q": ("shade", 1),
+    "r": ("glass", 1), "g": ("glass", 0.2), "h": ("white", 0.95),
+}
 
 
 def request_json(url, data=None):
@@ -52,191 +172,199 @@ def graphql(query, variables):
     return data["data"]
 
 
-def svg_start(w, h):
-    return f'''<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" viewBox="0 0 {w} {h}">
-<rect width="100%" height="100%" rx="18" fill="{BG}"/>
-<style>text{{font-family:{FONT}}}.title{{fill:{TEXT};font-weight:700}}.muted{{fill:{MUTED}}}.blue{{fill:{BLUE}}}</style>'''
+_metrics = {}
+
+
+def text_width(text, family, size):
+    if family not in _metrics:
+        font = TTFont(FONTS[family])
+        _metrics[family] = (font.getBestCmap(), font["hmtx"], font["head"].unitsPerEm)
+    cmap, hmtx, upm = _metrics[family]
+    return sum(hmtx[cmap.get(ord(c), ".notdef")][0] for c in text) * size / upm
+
+
+def font_face(family, text):
+    font = TTFont(FONTS[family])
+    options = subset.Options()
+    options.hinting = False
+    options.drop_tables += ["meta", "DSIG"]
+    options.name_IDs = [1, 2]
+    subsetter = subset.Subsetter(options)
+    subsetter.populate(text=text)
+    subsetter.subset(font)
+    font.flavor = "woff"
+    buf = io.BytesIO()
+    font.save(buf)
+    data = base64.b64encode(buf.getvalue()).decode()
+    return f'@font-face{{font-family:"{family}";src:url(data:font/woff;base64,{data}) format("woff")}}'
+
+
+def wrap(text, family, size, width):
+    lines, line = [], ""
+    for word in text.split():
+        candidate = f"{line} {word}".strip()
+        if line and text_width(candidate, family, size) > width:
+            lines.append(line)
+            line = word
+        else:
+            line = candidate
+    return lines + [line] if line else lines
+
+
+def ago(iso, now):
+    days = (now.date() - date.fromisoformat(iso[:10])).days
+    if days <= 0:
+        return "today"
+    if days == 1:
+        return "yesterday"
+    for limit, step, unit in ((14, 1, "day"), (60, 7, "week"), (365, 30, "month"), (10**6, 365, "year")):
+        if days < limit:
+            n = days // step
+            return f"{n} {unit}{'s' if n > 1 else ''} ago"
+
+
+class Canvas:
+    def __init__(self, w, h, theme):
+        self.w, self.h, self.c = w, h, THEMES[theme]
+        self.parts, self.glyphs = [], {}
+
+    def add(self, s):
+        self.parts.append(s)
+
+    def rect(self, x, y, w, h, fill, rx=0, opacity=1):
+        op = f' opacity="{opacity}"' if opacity != 1 else ""
+        self.add(f'<rect x="{x:g}" y="{y:g}" width="{w:g}" height="{h:g}" rx="{rx:g}" fill="{fill}"{op}/>')
+
+    def text(self, x, y, s, family, size, fill, anchor="start", spacing=0, words=0):
+        self.glyphs[family] = self.glyphs.get(family, "") + s
+        ls = (f' letter-spacing="{spacing:g}"' if spacing else "") + (f' word-spacing="{words:g}"' if words else "")
+        self.add(f'<text x="{x:g}" y="{y:g}" font-family="{family},{FALLBACK[family]}" font-size="{size:g}" '
+                 f'fill="{fill}" text-anchor="{anchor}"{ls}>{escape(s)}</text>')
+
+    def pixels(self, art, x, y, size):
+        layers = ART[art] if isinstance(ART[art], list) else [ART[art]]
+        for layer in layers:
+            rows = [line.strip() for line in layer.strip().splitlines()]
+            px = size / len(rows)
+            for r, row in enumerate(rows):
+                col = 0
+                while col < len(row):
+                    ch, run = row[col], 1
+                    while col + run < len(row) and row[col + run] == ch:
+                        run += 1
+                    if ch in PIXEL_COLORS:
+                        key, opacity = PIXEL_COLORS[ch]
+                        self.rect(x + col * px, y + r * px, run * px, px, self.c[key], opacity=opacity)
+                    col += run
+
+    def svg(self, title):
+        faces = "".join(font_face(f, t) for f, t in self.glyphs.items())
+        return (f'<svg xmlns="http://www.w3.org/2000/svg" width="{self.w}" height="{self.h}" viewBox="0 0 {self.w} {self.h}" '
+                f'role="img" shape-rendering="crispEdges"><title>{escape(title)}</title><style>{faces}</style>'
+                f'<rect x="0.5" y="0.5" width="{self.w - 1}" height="{self.h - 1}" rx="16" fill="{self.c["bg"]}" stroke="{self.c["line"]}"/>'
+                + "".join(self.parts) + "</svg>")
+
+
+def weekly(days):
+    weeks = {}
+    for d in days:
+        day = date.fromisoformat(d["date"])
+        start = day - timedelta(days=(day.weekday() + 1) % 7)
+        weeks[start] = weeks.get(start, 0) + d["count"]
+    return [weeks[k] for k in sorted(weeks)][-53:]
+
+
+def make_banner(data, theme, now):
+    cv = Canvas(1200, 440, theme)
+    c = cv.c
+
+    if c["stars"]:
+        seed = 7
+        for _ in range(46):
+            seed = (seed * 1103515245 + 12345) % 2**31
+            x, y = 40 + seed % 1120, 30 + (seed // 1120) % 190
+            size = 2 + (seed >> 9) % 2
+            cv.rect(x, y, size, size, c["stars"], opacity=round(0.18 + ((seed >> 4) % 40) / 100, 2))
+
+    cv.text(52, 214, "awizz", "aw-italic", 176, c["ink"], spacing=-2)
+
+    latest = data["latest"]
+    right = 1144
+    cv.text(right, 74, "last push", "aw-mono", 14, c["muted"], "end")
+    cv.text(right, 100, f'{latest["name"]} · {ago(latest["pushed_at"], now)}', "aw-mono-bold", 17, c["ink"], "end")
+    cv.text(right, 144, "past twelve months", "aw-mono", 14, c["muted"], "end")
+    cv.text(right, 170, f'{data["total"]} contributions', "aw-mono-bold", 17, c["ink"], "end")
+    cv.text(right, 196, "one column per week ↓", "aw-mono", 14, c["accent"], "end")
+
+    weeks = weekly(data["days"])
+    peak = max(weeks) or 1
+    pitch, block = 20, 18
+    x0 = (1200 - (len(weeks) * pitch - 2)) / 2
+    ground = 440 - 30 - block
+    for i, count in enumerate(weeks):
+        x = x0 + i * pitch
+        cv.rect(x, ground, block, block, c["block_alt"], rx=2)
+        height = 0 if count == 0 else 1 + round(7 * sqrt(count / peak))
+        for level in range(1, height + 1):
+            fill = c["accent"] if level == height else (c["block"] if (i + level) % 2 else c["block_alt"])
+            cv.rect(x, ground - level * pitch, block, block, fill, rx=2)
+
+    write(f"banner-{theme}.svg", cv.svg(f'awizz. {data["total"]} contributions over the past year, drawn as one column of blocks per week.'))
+
+
+def make_card(project, repo, theme, now):
+    cv = Canvas(600, 260, theme)
+    c = cv.c
+    cv.rect(16, 16, 208, 228, c["panel"], rx=10)
+    cv.pixels(project["art"], 40, 50, 160)
+
+    x, width = 252, 600 - 252 - 30
+    cv.text(x, 58, project["kind"], "aw-mono", 15, c["muted"])
+    cv.text(572, 60, "↗", "aw-mono", 18, c["accent"], "end")
+    cv.text(x, 106, project["repo"], "aw-serif", 42, c["ink"], spacing=-0.5)
+    for i, line in enumerate(wrap(project["blurb"], "aw-sans", 18, width - 12)[:3]):
+        cv.text(x, 144 + i * 25, line, "aw-sans", 18, c["body"], words=2.5)
+    meta = " · ".join(filter(None, [(repo.get("language") or "").lower(), f'updated {ago(repo["pushed_at"], now)}' if repo.get("pushed_at") else ""]))
+    cv.text(x, 228, meta, "aw-mono", 15, c["muted"])
+
+    write(f'card-{project["repo"]}-{theme}.svg', cv.svg(f'{project["repo"]}: {project["blurb"]}'))
 
 
 def write(name, content):
+    OUT.mkdir(exist_ok=True)
     (OUT / name).write_text(content, encoding="utf-8")
 
 
-def clamp(s, n):
-    s = (s or "No description yet.").replace("&", "and")
-    return s if len(s) <= n else s[: n - 1].rstrip() + "…"
-
-
-def streaks(days):
-    ordered = sorted(days, key=lambda x: x["date"])
-    longest = current = run = 0
-    today = datetime.now(timezone.utc).date().isoformat()
-    for d in ordered:
-        if d["contributionCount"] > 0:
-            run += 1
-            longest = max(longest, run)
-        else:
-            run = 0
-    by_date = {d["date"]: d["contributionCount"] for d in ordered}
-    d = datetime.now(timezone.utc).date()
-    if by_date.get(d.isoformat(), 0) == 0:
-        d -= timedelta(days=1)
-    while by_date.get(d.isoformat(), 0) > 0:
-        current += 1
-        d -= timedelta(days=1)
-    return current, longest
-
-
-def make_header(user, repos, contribution_total):
-    latest = next((r for r in sorted(repos, key=lambda r: r.get("pushed_at") or "", reverse=True)
-                   if not r.get("fork") and r["name"].lower() != USER.lower()), None)
-    latest_name = latest["name"] if latest else "building something new"
-    svg = svg_start(1000, 220)
-    svg += f'''
-<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#58a6ff"/><stop offset="1" stop-color="#a371f7"/></linearGradient></defs>
-<rect x="1" y="1" width="998" height="218" rx="18" fill="none" stroke="{BORDER}"/>
-<circle cx="44" cy="38" r="7" fill="#ff5f56"/><circle cx="68" cy="38" r="7" fill="#ffbd2e"/><circle cx="92" cy="38" r="7" fill="#27c93f"/>
-<text x="128" y="44" class="muted" font-size="15">awizz@github: ~</text>
-<text x="42" y="104" class="title" font-size="46">AWIZZ</text>
-<rect x="42" y="121" width="360" height="3" rx="2" fill="url(#g)"/>
-<text x="42" y="154" class="muted" font-size="17">systems • software • experiments</text>
-<text x="42" y="190" class="blue" font-size="15">$ currently hacking on {escape(latest_name)}</text>
-<text x="958" y="190" class="muted" text-anchor="end" font-size="13">{contribution_total} contributions · synced {datetime.now(timezone.utc):%Y-%m-%d}</text>
-</svg>'''
-    write("header.svg", svg)
-
-
-def make_stack():
-    w, h = 1000, 160
-    svg = svg_start(w, h)
-    svg += f'<rect x="1" y="1" width="998" height="158" rx="18" fill="none" stroke="{BORDER}"/>'
-    x, y = 28, 35
-    for tech in STACK:
-        width = max(78, len(tech) * 9 + 26)
-        if x + width > 970:
-            x, y = 28, y + 52
-        svg += f'<rect x="{x}" y="{y}" width="{width}" height="34" rx="9" fill="{CARD}" stroke="{BORDER}"/>'
-        svg += f'<text x="{x + 13}" y="{y + 22}" fill="{TEXT}" font-size="13">{escape(tech)}</text>'
-        x += width + 10
-    svg += '</svg>'
-    write("stack.svg", svg)
-
-
-def make_stats(user, repos, total_contrib, current_streak, longest_streak):
+def fetch():
+    repos = api(f"/users/{USER}/repos?per_page=100&type=owner&sort=pushed")
     own = [r for r in repos if not r.get("fork") and r["name"].lower() != USER.lower()]
-    stars = sum(r.get("stargazers_count", 0) for r in own)
-    values = [
-        (str(total_contrib), "contributions / year"),
-        (str(len(own)), "public projects"),
-        (str(user.get("followers", 0)), "followers"),
-        (str(current_streak), "current streak"),
-        (str(longest_streak), "longest streak"),
-        (str(stars), "stars received"),
-    ]
-    svg = svg_start(1000, 205)
-    svg += f'<rect x="1" y="1" width="998" height="203" rx="18" fill="none" stroke="{BORDER}"/>'
-    for i, (value, label) in enumerate(values):
-        col, row = i % 3, i // 3
-        x, y = 44 + col * 320, 62 + row * 85
-        svg += f'<text x="{x}" y="{y}" class="blue" font-size="30" font-weight="700">{escape(value)}</text>'
-        svg += f'<text x="{x}" y="{y + 25}" class="muted" font-size="13">{escape(label)}</text>'
-    svg += '</svg>'
-    write("stats.svg", svg)
-
-
-def make_languages(repos):
-    totals = Counter()
-    for repo in repos:
-        if repo.get("fork") or repo.get("archived") or repo["name"].lower() == USER.lower():
-            continue
-        try:
-            totals.update(api(f'/repos/{USER}/{repo["name"]}/languages'))
-        except Exception as e:
-            print(f"language fetch failed for {repo['name']}: {e}")
-    top = totals.most_common(6)
-    total = sum(v for _, v in top) or 1
-    palette = ["#58a6ff", "#a371f7", "#3fb950", "#d29922", "#f778ba", "#79c0ff"]
-    svg = svg_start(1000, 225)
-    svg += f'<rect x="1" y="1" width="998" height="223" rx="18" fill="none" stroke="{BORDER}"/>'
-    svg += f'<text x="34" y="42" class="title" font-size="18">language mix</text>'
-    x = 34
-    for idx, (lang, value) in enumerate(top):
-        width = 932 * value / total
-        svg += f'<rect x="{x:.1f}" y="64" width="{width:.1f}" height="15" fill="{palette[idx]}" rx="4"/>'
-        x += width
-    for idx, (lang, value) in enumerate(top):
-        col, row = idx % 3, idx // 3
-        x0, y0 = 42 + col * 305, 118 + row * 48
-        pct = value / total * 100
-        svg += f'<circle cx="{x0}" cy="{y0 - 5}" r="6" fill="{palette[idx]}"/>'
-        svg += f'<text x="{x0 + 16}" y="{y0}" fill="{TEXT}" font-size="14">{escape(lang)}</text>'
-        svg += f'<text x="{x0 + 190}" y="{y0}" class="muted" font-size="13">{pct:.1f}%</text>'
-    svg += '</svg>'
-    write("languages.svg", svg)
-
-
-def make_contributions(weeks, total):
-    level_colors = {
-        "NONE": "#161b22", "FIRST_QUARTILE": "#0e4429", "SECOND_QUARTILE": "#006d32",
-        "THIRD_QUARTILE": "#26a641", "FOURTH_QUARTILE": "#39d353",
+    now = datetime.now(timezone.utc)
+    query = '''query($login:String!,$from:DateTime!,$to:DateTime!){user(login:$login){contributionsCollection(from:$from,to:$to){contributionCalendar{totalContributions weeks{contributionDays{date contributionCount}}}}}}'''
+    cal = graphql(query, {"login": USER, "from": (now - timedelta(days=365)).isoformat(), "to": now.isoformat()})
+    cal = cal["user"]["contributionsCollection"]["contributionCalendar"]
+    by_name = {r["name"]: r for r in repos}
+    for p in PROJECTS:
+        if p["repo"] not in by_name:
+            by_name[p["repo"]] = api(f'/repos/{USER}/{p["repo"]}')
+    latest = max(own, key=lambda r: r.get("pushed_at") or "", default={"name": "something new", "pushed_at": now.isoformat()})
+    return {
+        "days": [{"date": d["date"], "count": d["contributionCount"]} for w in cal["weeks"] for d in w["contributionDays"]],
+        "total": cal["totalContributions"],
+        "latest": {"name": latest["name"], "pushed_at": latest["pushed_at"]},
+        "repos": {name: {"language": r.get("language"), "pushed_at": r.get("pushed_at")} for name, r in by_name.items()},
     }
-    cell, gap = 12, 4
-    x0, y0 = 110, 76
-    svg = svg_start(1000, 220)
-    svg += f'<rect x="1" y="1" width="998" height="218" rx="18" fill="none" stroke="{BORDER}"/>'
-    svg += f'<text x="34" y="40" class="title" font-size="18">contribution signal</text><text x="965" y="40" text-anchor="end" class="muted" font-size="13">{total} in the last year</text>'
-    for wi, week in enumerate(weeks[-53:]):
-        for di, day in enumerate(week["contributionDays"]):
-            x, y = x0 + wi * (cell + gap), y0 + di * (cell + gap)
-            color = level_colors.get(day["contributionLevel"], "#161b22")
-            count = day["contributionCount"]
-            svg += f'<rect x="{x}" y="{y}" width="{cell}" height="{cell}" rx="3" fill="{color}"><title>{day["date"]}: {count} contributions</title></rect>'
-    svg += f'<text x="34" y="92" class="muted" font-size="12">Mon</text><text x="34" y="124" class="muted" font-size="12">Wed</text><text x="34" y="156" class="muted" font-size="12">Fri</text>'
-    svg += f'<text x="110" y="199" class="muted" font-size="12">less</text>'
-    for i, c in enumerate(["#161b22", "#0e4429", "#006d32", "#26a641", "#39d353"]):
-        svg += f'<rect x="{150 + i * 19}" y="189" width="12" height="12" rx="3" fill="{c}"/>'
-    svg += f'<text x="252" y="199" class="muted" font-size="12">more</text></svg>'
-    write("contributions.svg", svg)
 
 
-def make_project(repo):
-    name = repo["name"]
-    desc = clamp(repo.get("description"), 92)
-    lines = textwrap.wrap(desc, width=48)[:2] or ["No description yet."]
-    lang = repo.get("language") or "mixed"
-    updated = (repo.get("pushed_at") or "")[:10]
-    svg = svg_start(480, 174)
-    svg += f'<rect x="1" y="1" width="478" height="172" rx="18" fill="none" stroke="{BORDER}"/>'
-    svg += f'<text x="25" y="40" class="blue" font-size="18" font-weight="700">{escape(name)}</text>'
-    for i, line in enumerate(lines):
-        svg += f'<text x="25" y="{75 + i*22}" fill="{TEXT}" font-size="13">{escape(line)}</text>'
-    svg += f'<circle cx="31" cy="143" r="5" fill="{GREEN}"/><text x="44" y="148" class="muted" font-size="12">{escape(lang)}</text>'
-    svg += f'<text x="455" y="148" text-anchor="end" class="muted" font-size="12">updated {escape(updated)}</text></svg>'
-    write(f"project-{name}.svg", svg)
+def render(data, now=None):
+    now = now or datetime.now(timezone.utc)
+    for theme in THEMES:
+        make_banner(data, theme, now)
+        for project in PROJECTS:
+            make_card(project, data["repos"].get(project["repo"], {}), theme, now)
 
 
 def main():
-    user = api(f"/users/{USER}")
-    repos = api(f"/users/{USER}/repos?per_page=100&type=owner&sort=updated")
-    now = datetime.now(timezone.utc)
-    start = now - timedelta(days=370)
-    query = '''query($login:String!,$from:DateTime!,$to:DateTime!){user(login:$login){contributionsCollection(from:$from,to:$to){contributionCalendar{totalContributions weeks{contributionDays{date contributionCount contributionLevel}}}}}}'''
-    cal = graphql(query, {"login": USER, "from": start.isoformat(), "to": now.isoformat()})["user"]["contributionsCollection"]["contributionCalendar"]
-    weeks = cal["weeks"]
-    days = [d for w in weeks for d in w["contributionDays"]]
-    current, longest = streaks(days)
-
-    make_header(user, repos, cal["totalContributions"])
-    make_stack()
-    make_stats(user, repos, cal["totalContributions"], current, longest)
-    make_languages(repos)
-    make_contributions(weeks, cal["totalContributions"])
-
-    repo_by_name = {r["name"]: r for r in repos}
-    for name in FEATURED:
-        repo = repo_by_name.get(name) or api(f"/repos/{USER}/{name}")
-        make_project(repo)
-
+    render(fetch())
     print("profile assets generated")
 
 
