@@ -14,10 +14,10 @@ That's how I ended up with a handful of Minecraft plugins, a Discord theme, a fe
 ### Things I've made
 
 <p>
-  <a href="https://github.com/awizzz/lobby-selector"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/card-lobby-selector-dark.svg"><img src="./assets/card-lobby-selector-light.svg" width="49%" alt="lobby-selector: a server picker for Spigot and Paper networks."></picture></a>
-  <a href="https://github.com/awizzz/SkinManager"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/card-SkinManager-dark.svg"><img src="./assets/card-SkinManager-light.svg" width="49%" alt="SkinManager: grabs skins from the Mojang API and applies them to players."></picture></a>
-  <a href="https://github.com/awizzz/BedrockTabList"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/card-BedrockTabList-dark.svg"><img src="./assets/card-BedrockTabList-light.svg" width="49%" alt="BedrockTabList: shows in the tab list who's on Bedrock and who's on Java."></picture></a>
-  <a href="https://github.com/awizzz/LiquidGlassCord"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/card-LiquidGlassCord-dark.svg"><img src="./assets/card-LiquidGlassCord-light.svg" width="49%" alt="LiquidGlassCord: a Discord theme going for the liquid glass look."></picture></a>
+<a href="https://github.com/awizzz/lobby-selector"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/project-lobby-selector-dark.svg"><img src="./assets/project-lobby-selector-light.svg" width="100%" alt="lobby-selector: a server picker for Spigot and Paper networks."></picture></a>
+<a href="https://github.com/awizzz/SkinManager"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/project-SkinManager-dark.svg"><img src="./assets/project-SkinManager-light.svg" width="100%" alt="SkinManager: grabs skins from the Mojang API and applies them to players."></picture></a>
+<a href="https://github.com/awizzz/BedrockTabList"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/project-BedrockTabList-dark.svg"><img src="./assets/project-BedrockTabList-light.svg" width="100%" alt="BedrockTabList: shows in the tab list who's on Bedrock and who's on Java."></picture></a>
+<a href="https://github.com/awizzz/LiquidGlassCord"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/project-LiquidGlassCord-dark.svg"><img src="./assets/project-LiquidGlassCord-light.svg" width="100%" alt="LiquidGlassCord: a Discord theme going for the liquid glass look."></picture></a>
 </p>
 
 Everything else is in [my repositories](https://github.com/awizzz?tab=repositories), half-finished experiments included.

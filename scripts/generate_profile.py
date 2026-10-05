@@ -32,117 +32,30 @@ logging.getLogger("fontTools").setLevel(logging.ERROR)
 
 THEMES = {
     "light": {
-        "bg": "#f6f3ec", "line": "#e3ddd0", "panel": "#ece6da", "face": "#fbf9f4",
+        "bg": "#f6f3ec", "line": "#e3ddd0", "rule": "#d8d3c9",
         "ink": "#1d1c1a", "body": "#57524a", "muted": "#7d776e", "accent": "#df5329",
         "block": "#dcd4c4", "block_alt": "#d3cab8", "stars": None,
-        "glass": "#9db3bd", "white": "#fdfcf8", "hair": "#3a2a21", "eye": "#1d1c1a", "skin": "#e7b48d", "shade": "#c08a63",
     },
     "dark": {
-        "bg": "#0f1318", "line": "#232b35", "panel": "#161c24", "face": "#222a34",
+        "bg": "#0f1318", "line": "#232b35", "rule": "#2b323c",
         "ink": "#ece7dc", "body": "#b3b0a8", "muted": "#8a9099", "accent": "#ff7247",
         "block": "#1d242d", "block_alt": "#232b35", "stars": "#ece7dc",
-        "glass": "#bcd3dc", "white": "#ece7dc", "hair": "#4b3427", "eye": "#0f1318", "skin": "#d6a27a", "shade": "#a8724f",
     },
 }
 
 # Featured repos. Blurbs live here rather than coming from the GitHub description
 # so they read the same way as the rest of the README.
 PROJECTS = [
-    {"repo": "lobby-selector", "kind": "minecraft plugin", "art": "compass",
+    {"repo": "lobby-selector", "kind": "minecraft plugin",
      "blurb": "A server picker for Spigot and Paper networks. Open the menu, pick where you want to go."},
-    {"repo": "SkinManager", "kind": "minecraft plugin", "art": "face",
+    {"repo": "SkinManager", "kind": "minecraft plugin",
      "blurb": "Grabs skins from the Mojang API and puts them on players automatically."},
-    {"repo": "BedrockTabList", "kind": "minecraft plugin", "art": "tablist",
+    {"repo": "BedrockTabList", "kind": "minecraft plugin",
      "blurb": "Shows in the tab list who's playing on Bedrock and who's on Java."},
-    {"repo": "LiquidGlassCord", "kind": "discord theme", "art": "glass",
+    {"repo": "LiquidGlassCord", "kind": "discord theme",
      "blurb": "A Discord theme that goes for the liquid glass look. Nothing but CSS."},
 ]
 
-# 16x16 pixel art (8x8 for the face). Each letter maps to a theme colour, see PIXEL_COLORS.
-ART = {
-    "compass": """
-        .....kkkkkk.....
-        ...kkwwwwwwkk...
-        ..kwwwwwwwwwwk..
-        .kwwwwwwwwwwawk.
-        .kwwwwwwwwwaawk.
-        kwwwwwwwwwaawwwk
-        kwwwwwwwwaawwwwk
-        kwwwwwwkkawwwwwk
-        kwwwwwmkkwwwwwwk
-        kwwwwmmwwwwwwwwk
-        kwwwmmwwwwwwwwwk
-        .kwmmwwwwwwwwwk.
-        .kwmwwwwwwwwwwk.
-        ..kwwwwwwwwwwk..
-        ...kkwwwwwwkk...
-        .....kkkkkk.....""",
-    "face": """
-        HHHHHHHH
-        HHHHHHHH
-        HssssssH
-        ssssssss
-        sWEssEWs
-        sssqqsss
-        ssqqqqss
-        ssssssss""",
-    "tablist": """
-        ................
-        .kkkkkkkkkkkkkk.
-        .kwwwwwwwwwwwwk.
-        .kwaawmmmmmmwwk.
-        .kwaawmmmmmmwwk.
-        .kwwwwwwwwwwwwk.
-        .kwkkwmmmmwwwwk.
-        .kwkkwmmmmwwwwk.
-        .kwwwwwwwwwwwwk.
-        .kwaawmmmmmmmwk.
-        .kwaawmmmmmmmwk.
-        .kwwwwwwwwwwwwk.
-        .kwkkwmmmmmwwwk.
-        .kwkkwmmmmmwwwk.
-        .kwwwwwwwwwwwwk.
-        .kkkkkkkkkkkkkk.""",
-    # A Minecraft-style glass pane drawn over a couple of shapes.
-    "glass": ["""
-        ................
-        ................
-        ................
-        ................
-        .....aaaa.......
-        ....aaaaaa......
-        ....aaaaaa......
-        ....aaaaaa......
-        ....aaaammmm....
-        .....aaammmm....
-        ........mmmm....
-        ........mmmm....
-        ................
-        ................
-        ................
-        ................""", """
-        ................
-        ................
-        ..rrrrrrrrrrrr..
-        ..rghggggggggr..
-        ..rhgggggggggr..
-        ..rggggggggggr..
-        ..rggggggggggr..
-        ..rggggggggggr..
-        ..rggggggggggr..
-        ..rggggggggggr..
-        ..rggggggggggr..
-        ..rggggggggghr..
-        ..rgggggggghgr..
-        ..rrrrrrrrrrrr..
-        ................
-        ................"""],
-}
-PIXEL_COLORS = {
-    "k": ("ink", 1), "w": ("face", 1), "m": ("muted", 1), "a": ("accent", 1),
-    "H": ("hair", 1), "W": ("white", 1), "E": ("eye", 1), "s": ("skin", 1), "q": ("shade", 1),
-    "r": ("glass", 1), "g": ("glass", 0.2), "h": ("white", 0.95),
-}
 
 
 def request_json(url, data=None):
@@ -241,28 +154,12 @@ class Canvas:
         self.add(f'<text x="{x:g}" y="{y:g}" font-family="{family},{FALLBACK[family]}" font-size="{size:g}" '
                  f'fill="{fill}" text-anchor="{anchor}"{ls}>{escape(s)}</text>')
 
-    def pixels(self, art, x, y, size):
-        layers = ART[art] if isinstance(ART[art], list) else [ART[art]]
-        for layer in layers:
-            rows = [line.strip() for line in layer.strip().splitlines()]
-            px = size / len(rows)
-            for r, row in enumerate(rows):
-                col = 0
-                while col < len(row):
-                    ch, run = row[col], 1
-                    while col + run < len(row) and row[col + run] == ch:
-                        run += 1
-                    if ch in PIXEL_COLORS:
-                        key, opacity = PIXEL_COLORS[ch]
-                        self.rect(x + col * px, y + r * px, run * px, px, self.c[key], opacity=opacity)
-                    col += run
-
-    def svg(self, title):
+    def svg(self, title, framed=True):
         faces = "".join(font_face(f, t) for f, t in self.glyphs.items())
+        frame = (f'<rect x="0.5" y="0.5" width="{self.w - 1}" height="{self.h - 1}" rx="16" fill="{self.c["bg"]}" '
+                 f'stroke="{self.c["line"]}"/>') if framed else ""
         return (f'<svg xmlns="http://www.w3.org/2000/svg" width="{self.w}" height="{self.h}" viewBox="0 0 {self.w} {self.h}" '
-                f'role="img" shape-rendering="crispEdges"><title>{escape(title)}</title><style>{faces}</style>'
-                f'<rect x="0.5" y="0.5" width="{self.w - 1}" height="{self.h - 1}" rx="16" fill="{self.c["bg"]}" stroke="{self.c["line"]}"/>'
-                + "".join(self.parts) + "</svg>")
+                f'role="img"><title>{escape(title)}</title><style>{faces}</style>{frame}' + "".join(self.parts) + "</svg>")
 
 
 def weekly(days):
@@ -312,22 +209,28 @@ def make_banner(data, theme, now):
     write(f"banner-{theme}.svg", cv.svg(f'awizz. {data["total"]} contributions over the past year, drawn as one column of blocks per week.'))
 
 
-def make_card(project, repo, theme, now):
-    cv = Canvas(600, 260, theme)
+def make_row(project, number, repo, theme, now, last):
+    # No box and no background: the rows sit straight on the page like a table of contents.
+    w, x = 800, 70
+    lines = wrap(project["blurb"], "aw-sans", 18, 470)
+    h = 92 + 26 * len(lines)
+    cv = Canvas(w, h, theme)
     c = cv.c
-    cv.rect(16, 16, 208, 228, c["panel"], rx=10)
-    cv.pixels(project["art"], 40, 50, 160)
+    cv.rect(0, 0, w, 1, c["rule"])
+    if last:
+        cv.rect(0, h - 1, w, 1, c["rule"])
 
-    x, width = 252, 600 - 252 - 30
-    cv.text(x, 58, project["kind"], "aw-mono", 15, c["muted"])
-    cv.text(572, 60, "↗", "aw-mono", 18, c["accent"], "end")
-    cv.text(x, 106, project["repo"], "aw-serif", 42, c["ink"], spacing=-0.5)
-    for i, line in enumerate(wrap(project["blurb"], "aw-sans", 18, width - 12)[:3]):
-        cv.text(x, 144 + i * 25, line, "aw-sans", 18, c["body"], words=2.5)
-    meta = " · ".join(filter(None, [(repo.get("language") or "").lower(), f'updated {ago(repo["pushed_at"], now)}' if repo.get("pushed_at") else ""]))
-    cv.text(x, 228, meta, "aw-mono", 15, c["muted"])
+    cv.text(0, 64, f"{number:02d}", "aw-italic", 30, c["accent"])
+    cv.text(x, 64, project["repo"], "aw-serif", 40, c["ink"], spacing=-0.3)
+    for i, line in enumerate(lines):
+        cv.text(x, 100 + i * 26, line, "aw-sans", 18, c["body"], words=2.5)
 
-    write(f'card-{project["repo"]}-{theme}.svg', cv.svg(f'{project["repo"]}: {project["blurb"]}'))
+    cv.text(w - 30, 60, project["kind"], "aw-mono", 14, c["muted"], "end")
+    cv.text(w, 61, "↗", "aw-mono", 17, c["accent"], "end")
+    meta = " · ".join(filter(None, [(repo.get("language") or "").lower(), ago(repo["pushed_at"], now) if repo.get("pushed_at") else ""]))
+    cv.text(w - 30, 100, meta, "aw-mono", 14, c["muted"], "end")
+
+    write(f'project-{project["repo"]}-{theme}.svg', cv.svg(f'{project["repo"]}: {project["blurb"]}', framed=False))
 
 
 def write(name, content):
@@ -359,8 +262,8 @@ def render(data, now=None):
     now = now or datetime.now(timezone.utc)
     for theme in THEMES:
         make_banner(data, theme, now)
-        for project in PROJECTS:
-            make_card(project, data["repos"].get(project["repo"], {}), theme, now)
+        for i, project in enumerate(PROJECTS, 1):
+            make_row(project, i, data["repos"].get(project["repo"], {}), theme, now, last=i == len(PROJECTS))
 
 
 def main():
