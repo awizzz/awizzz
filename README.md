@@ -1,31 +1,21 @@
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg">
-  <img src="./assets/banner-light.svg" width="100%" alt="awizz. Contributions over the past year, drawn as one column of blocks per week.">
-</picture>
+I make Windows tools, Minecraft plugins and the occasional Discord bot. These days it's mostly Nebula.
 
-I'm **awizz**. Most of what's on this profile exists because I wanted something, went looking for it, and either couldn't find it or didn't like what I found. So I built it, broke it, and built it again once I understood the problem a bit better.
+<a href="https://github.com/awizzz/nebula-terminal">
+  <img src="https://github.com/awizzz/nebula-terminal/raw/main/docs/images/social-preview.png" alt="Nebula Terminal: Linux commands, right on Windows" width="100%">
+</a>
 
-That's how I ended up with a handful of Minecraft plugins, a Discord theme, a few bots, and now a shell.
+A terminal for Windows where `ls`, `grep`, `sed` and `awk` behave like they do on Linux. It has its own interpreter, and runs PowerShell, cmd, Git Bash, WSL and SSH next to it in tabs and split panes. Rust and TypeScript, on Tauri.
 
-### Right now
+**[Download](https://nebula.awizz.space)** · [Source](https://github.com/awizzz/nebula-terminal) · [Changelog](https://github.com/awizzz/nebula-terminal/blob/main/CHANGELOG.md)
 
-[**Nebula Shell**](https://github.com/awizzz/nebula-terminal), a shell for Windows written in Rust. It's my current rabbit hole and the project I learn the most from.
+### Other stuff
 
-### Things I've made
+- [**Posolya**](https://github.com/awizzz/Posolya): a medication app in React Native. Look up a drug, scan the box, keep track of your doses. In French.
+- [**lobby-selector**](https://github.com/awizzz/lobby-selector): server selector menu for Spigot and Paper networks.
+- [**SkinManager**](https://github.com/awizzz/SkinManager): fetches skins from the Mojang API and applies them on its own.
+- [**BedrockTabList**](https://github.com/awizzz/BedrockTabList): shows in the tab list who's on Bedrock and who's on Java.
+- [**LiquidGlassCord**](https://github.com/awizzz/LiquidGlassCord): an Apple-style liquid glass theme for BetterDiscord.
 
-<p>
-<a href="https://github.com/awizzz/lobby-selector"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/project-lobby-selector-dark.svg"><img src="./assets/project-lobby-selector-light.svg" width="100%" alt="lobby-selector: a server picker for Spigot and Paper networks."></picture></a>
-<a href="https://github.com/awizzz/SkinManager"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/project-SkinManager-dark.svg"><img src="./assets/project-SkinManager-light.svg" width="100%" alt="SkinManager: grabs skins from the Mojang API and applies them to players."></picture></a>
-<a href="https://github.com/awizzz/BedrockTabList"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/project-BedrockTabList-dark.svg"><img src="./assets/project-BedrockTabList-light.svg" width="100%" alt="BedrockTabList: shows in the tab list who's on Bedrock and who's on Java."></picture></a>
-<a href="https://github.com/awizzz/LiquidGlassCord"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/project-LiquidGlassCord-dark.svg"><img src="./assets/project-LiquidGlassCord-light.svg" width="100%" alt="LiquidGlassCord: a Discord theme going for the liquid glass look."></picture></a>
-</p>
+Mostly Rust, TypeScript and Java. Python and PowerShell for everything else.
 
-Everything else is in [my repositories](https://github.com/awizzz?tab=repositories), half-finished experiments included.
-
-### What I work with
-
-TypeScript and Java most of the time, Rust for Nebula. Python, Bash and PowerShell for the small scripts that glue everything together. Node and React when a project needs a web side, PostgreSQL, MySQL or MongoDB depending on the data, Docker to run it all on Linux. And an Arduino when I feel like touching actual hardware.
-
-### Talk to me
-
-Found a bug in one of my plugins, have an idea, or just want to chat: [email](mailto:awizz.pro@proton.me) works, and so does [my Discord server](https://discord.gg/awizzzoff). Issues and PRs are welcome on any repo.
+[awizz.pro@proton.me](mailto:awizz.pro@proton.me) · [Discord](https://discord.gg/awizzzoff)
